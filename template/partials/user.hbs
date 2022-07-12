@@ -1,0 +1,46 @@
+    <!-- ======= User Section ======= -->
+      <div class="container" data-aos="fade-down">
+        <div class="section-title">
+          <h1>Hello, {{username}}</h1>
+          <p>Your Account Details</p>
+          <hr/>
+        </div>
+        <div class="text-center" style="margin-top:-30px;" data-aos="fade-up" data-aos-delay="500">
+            <strong>Username : </strong>{{username}}
+            <br/>
+            <strong>Email : </strong>{{useremail}}
+            <br/>
+            <div class="text-center">
+              <strong>Cart List : </strong><br/><div id="cart">{{userproduct}}</div>
+            </div>
+          <form action="logout"><input type="submit" value="Log Out"></form>
+        </div>
+      </div>  
+    <!-- End User Section -->
+
+    <!-- cart display -->
+    <script>
+      cartArray = document.getElementById("cart").innerHTML;
+      cartArray = cartArray.split(",");
+      cartElement = "<table id='table' style='text-align:left;'>";
+      cartElement = cartElement+"<tr><th>Image</th><th>Product</th><th>Quantity</th></tr>";
+
+      cartArray.forEach(function (item, index){
+        item = item.replace("\n","");
+        item = item.replace("{","")
+        item = item.replace("}","")
+        item = item.replace("\n","");
+        item = item.replace(/\s+/g, ' ').trim();
+        item = item.split(":");
+        if (item[1]>0){
+          console.log(item);
+          cartElement = cartElement+`<tr><td><img class='userProductImg' src=${'/assets/img/shop/profileImg/'+item[0]+'.jpg'} alt="Not Available"></img></td><td>${item[0]}</td><td>${item[1]}</td></tr>`;
+        }
+      });
+
+      cartElement = cartElement+"</table>";
+      var tableCss=`<style>table{display:flex;margin-top:10px;} tr,th,td{border: 1px solid #c5e5fd;} td{background-color:#d6edff}</style>`;
+      document.getElementById("cart").style.display = "inline-flex";
+      document.getElementById("cart").innerHTML = cartElement + tableCss;
+
+    </script>

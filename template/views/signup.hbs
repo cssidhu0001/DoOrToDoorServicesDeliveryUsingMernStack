@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign-up</title>
+
+    {{!-- favicon --}}
+    <link rel="icon" href="assets/favicon/signup.ico" type="image/x-icon" />
+    
+    {{>mainCss}}
+    <link href="css/signup.css" rel="stylesheet">
+    <script
+        src="https://kit.fontawesome.com/64d58efce2.js"
+        crossorigin="anonymous">
+    </script>
+</head>
+<body>
+    {{>topbar}}
+    {{>header}}
+    <main id="main">
+    <section class="inner-page pt-3">
+      <div class="container" data-aos="fade-up">
+        <div class="left">
+          <form action="/signup" class="sign-up-form" method="POST">
+            <h2 class="title">Sign Up</h2>
+            <div class="input-field">
+              <i class="fas fa-user"></i>
+              <input type="text" 
+                      placeholder="Username" 
+                      title="Enter a username" 
+                      name="username" 
+                      required />
+            </div>
+            <div class="input-field">
+              <i class="fas fa-envelope"></i>
+              <input type="email" 
+                      placeholder="Email" 
+                      title="Enter a valid e-mail,further need for verification" 
+                      name="email" 
+                      required />
+            </div>
+            <div class="input-field">
+              <i class="fas fa-lock"></i>
+              <input type="password" 
+                      placeholder="Password" 
+                      title="Enter a strong password"
+			                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*?[!@#$%^&*+`~'=?\|\]\[\(\)\-<>/]).{8,}" 
+                      name="password" 
+                      id="password"
+                      required />
+            </div>
+            <!-- message-1 -->
+            <div id="message">
+              <h6 id="passhead">Password must contain the following:</h6>
+              <h6 id="letter" class="invalid">A <b>lowercase</b> letter</h6>
+              <h6 id="capital" class="invalid">A <b>capital (uppercase)</b> letter</h6>
+              <h6 id="number" class="invalid">A <b>number</b></h6>
+              <h6 id="length" class="invalid">Minimum <b>8 characters</b></h6>
+              <h6 id="schar" class="invalid">A <b>special character</b></h6>
+            </div> 
+            <div class="input-field">
+              <i class="fas fa-lock"></i>
+              <input type="password" 
+                      placeholder="Confirm Password" 
+                      title="Same as password" 
+                      name="confirmpassword" 
+                      id="confirmpassword"
+                      required />
+            </div>
+            <!-- message-2 -->
+            <div id="cmessage">
+                <h6 id="cerror" class="invalid">confirm password must be same as <b>password</b></h6>
+            </div>
+            <input type="submit" class="btn" value="Sign up" />
+            <!-- Or -->
+            <p class="social-text">Or Sign up with social platforms</p>
+            <div class="social-media">
+              <a href="#" class="social-icon">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="#" class="social-icon">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#" class="social-icon">
+                <i class="fab fa-google"></i>
+              </a>
+              <a href="#" class="social-icon">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </div>
+          </form>
+        </div>
+        <div class="container" id="thisContainer">
+          <img src="assets/clipArt/signup.png">
+        </div>
+      </div>
+    </section>
+    </main>
+    <!-- End #main -->
+    {{>copyright}}
+</body>
+  {{>mainJS}}
+  <script src="js/signup.js"></script>
+</html>
