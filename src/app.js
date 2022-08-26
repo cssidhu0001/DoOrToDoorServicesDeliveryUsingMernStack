@@ -1,6 +1,6 @@
 require('dotenv').config();
 const express = require('express');
-const reloaod= require('reload');
+// const reloaod= require('reload');
 const path = require("path");
 const app = express();
 const hbs = require("hbs");
@@ -354,6 +354,11 @@ app.get("/faq", (req,res) => {
 // get services page
 app.get("/services", (req,res) => {
     res.render("servicesPage");
+});
+
+// get signup page
+app.get("/paymentInfo", (req,res) => {
+    res.render("paymentInfo");
 });
 
 // get PageNotFound
