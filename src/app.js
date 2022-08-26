@@ -57,7 +57,7 @@ function sendEmailuser(email, name, mailOnBehalf="") {
 
     if ( mailOnBehalf === "signup" ){
         transporter.sendMail({
-            from: process.env.from,
+            from: process.env.user,
             to: email,
             subject: "Support",
             html: `<pre>Hi <b>${name}</b>,
@@ -83,14 +83,14 @@ function sendEmailuser(email, name, mailOnBehalf="") {
             })
     } else if ( mailOnBehalf === "message" ){
         transporter.sendMail({
-            from: process.env.from,
+            from: process.env.user,
             to: email,
             subject: "Support",
             html: `<pre>Hi <b>${name}</b>,
     
                 Thanks for getting in touch with us. 
                 
-                You have get your query. We will get back to you in next 24 hours.
+                We have get your query. We will get back to you in next 24 hours.
 
                 Need help in the meantime check out our Contact Page for more.
                 
@@ -109,7 +109,7 @@ function sendEmailuser(email, name, mailOnBehalf="") {
             })
     } else if ( mailOnBehalf === "addToCart" ){
         transporter.sendMail({
-            from: process.env.from,
+            from: process.env.user,
             to: email,
             subject: "Support",
             html: `<pre>Hi <b>${name}</b>,
@@ -135,7 +135,7 @@ function sendEmailuser(email, name, mailOnBehalf="") {
             })
     } else if ( mailOnBehalf === "logout" ){
         transporter.sendMail({
-            from: process.env.from,
+            from: process.env.user,
             to: email,
             subject: "Support",
             html: `<pre>Hi <b>${name}</b>,
@@ -159,7 +159,7 @@ function sendEmailuser(email, name, mailOnBehalf="") {
         })
     } else {
         transporter.sendMail({
-            from: process.env.from,
+            from: process.env.user,
             to: email,
             subject: "Support",
             html: `<pre>Hi <b>${name}</b>,
