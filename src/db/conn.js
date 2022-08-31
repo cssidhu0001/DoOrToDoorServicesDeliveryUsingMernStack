@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 // DataBase Connection
-mongoose.connect( process.env.DATABASELocal, {
+mongoose.connect( process.env.DATABASEHOST, {
     useNewUrlParser:true,
     useUnifiedTopology:true
     // useCreateIndex:true
