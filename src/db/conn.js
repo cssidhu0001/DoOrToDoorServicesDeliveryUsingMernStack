@@ -4,7 +4,6 @@ const mongoose = require('mongoose');
 mongoose.connect( process.env.DATABASEHOST, {
     useNewUrlParser:true,
     useUnifiedTopology:true
-    // useCreateIndex:true
 }).then(() => {
     console.log("[ User Database Connected... ]");
 }).catch((e) => {

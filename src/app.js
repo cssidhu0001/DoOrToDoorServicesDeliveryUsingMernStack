@@ -60,7 +60,7 @@ function sendEmailuser(email, name, mailOnBehalf="") {
             html: `<pre>Hi, Thanks for Signing Up, <b>${name}</b>,
     
             You have been added  to our Mailing list and will now be among,
-            THER FIRST TO HEAR ABOUT OUR NEW ARRIVIALS,OFFERS ANF BIG EVENTS
+            THE FIRST TO HEAR ABOUT OUR NEW ARRIVIALS,OFFERS AND BIG EVENTS
 
             Thank you for Choosing us.
                 
