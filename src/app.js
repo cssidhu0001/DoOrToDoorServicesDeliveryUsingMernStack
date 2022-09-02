@@ -246,16 +246,15 @@ app.post("/signin", async(req,res) => {
         const temp = await User.findOne({email:email});
         const isMatched = await bcrypt.compare(password,temp.password);
         
-        //middleware
-        const token = await temp.generateAuthToken();
-
-        res.cookie("jwt", token, {
-            expires:new Date(Date.now() + 2592000000),
-            httpOnly:true
-        });
-        
         if(isMatched){
             await sendEmailuser(temp.email, temp.username,"signin");
+            
+            //middleware
+            const token = await temp.generateAuthToken();
+            res.cookie("jwt", token, {
+                expires:new Date(Date.now() + 2592000000),
+                httpOnly:true
+            });
             res.status(201).render("signinRedirectPage");    
         } else {
             res.status(400).render("incorrectUserNamePassword");                   
